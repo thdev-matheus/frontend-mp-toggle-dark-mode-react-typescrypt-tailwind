@@ -1,7 +1,53 @@
 @tailwind utilities;
 
 @layer utilities {
-  .toggle {
-    margin: 0;
+  @keyframes fadeindark {
+    0% {
+      opacity: 0;
+      scale: 1;
+    }
+
+    50% {
+      color: #9a9a9a;
+    }
+
+    70% {
+      scale: 1.2;
+    }
+
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  @keyframes fadeinlight {
+    0% {
+      opacity: 0;
+      scale: 1;
+    }
+
+    50% {
+      color: #fcfba9;
+    }
+
+    70% {
+      scale: 1.2;
+    }
+
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  .fadeindark {
+    animation-name: fadeindark;
+    animation-duration: .8s;
+  }
+
+  .fadeinlight {
+    animation-name: fadeinlight;
+    animation-duration: .8s;
   }
 }
