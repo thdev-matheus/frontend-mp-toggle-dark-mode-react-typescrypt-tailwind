@@ -5,7 +5,30 @@
     <link rel="icon" type="image/svg+xml" href="./src/assets/img/react.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Toggle Dark Mode</title>
-    <script src="./src/darkMode.ts"></script>
+    <!-- Script para aplicar o dark mode de forma mais eficiente -->
+    <script>
+      const theme = localStorage.getItem("@TDM-THEME");
+      const html = document.documentElement;
+
+      if (!theme) {
+        localStorage.setItem("@TDM-THEME", "dark");
+        html.classList.add("dark");
+      }
+
+      if (theme === "dark") {
+        html.classList.add("dark");
+      }
+
+      if (theme === "light") {
+        html.classList.remove("dark");
+      }
+
+      setTimeout(() => {
+        const body = document.getElementsByTagName("body");
+
+        body[0].style.transition = "500ms";
+      }, 1000);
+    </script>
   </head>
   <body class="bg-white dark:bg-gray-900">
     <div id="root"></div>
