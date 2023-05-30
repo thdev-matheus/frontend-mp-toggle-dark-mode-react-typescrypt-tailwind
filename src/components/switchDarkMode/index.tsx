@@ -1,22 +1,33 @@
 import { useState } from "react";
-import * as T from "./types";
 import { FaSun, FaMoon } from "react-icons/fa";
 import click1Sound from "../../assets/sounds/click1.wav";
 import click2Sound from "../../assets/sounds/click2.wav";
 
-export default function SwitchDarkMode({ switchAction }: T.ISwitchProps) {
+export default function SwitchDarkMode() {
   const [isActive, setIsActive] = useState(
     localStorage.getItem("@TDM-THEME") === "light" ? false : true
   );
 
+  const localTheme = localStorage.getItem("@TDM-THEME");
+
   const click1 = new Audio(click1Sound);
   const click2 = new Audio(click2Sound);
+
+  const toggleTheme = () => {
+    if (localTheme === "light") {
+      localStorage.setItem("@TDM-THEME", "dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      localStorage.setItem("@TDM-THEME", "light");
+      document.documentElement.classList.remove("dark");
+    }
+  };
 
   return (
     <button
       onClick={() => {
         setIsActive(!isActive);
-        switchAction();
+        toggleTheme();
         isActive ? click2.play() : click1.play();
       }}
       className={`flex items-center w-10 h-5 transition duration-300 ${
