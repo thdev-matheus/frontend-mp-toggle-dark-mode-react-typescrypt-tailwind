@@ -3,51 +3,51 @@
 @layer utilities {
   @keyframes fadeindark {
     0% {
-      opacity: 0;
-      scale: 1;
+      rotate: -180deg;
+      scale: 0.7;
+      opacity: 0.5;
     }
-
+    
     50% {
       color: #9a9a9a;
+      opacity: 0.85;
     }
 
-    70% {
-      scale: 1.2;
-    }
 
     100% {
-      opacity: 1;
       scale: 1;
+      rotate: 0deg;
+      opacity: 1;
     }
   }
 
   @keyframes fadeinlight {
     0% {
-      opacity: 0;
-      scale: 1;
+      rotate: -180deg;
+      scale: 0.7;
+      opacity: 0.5;
     }
 
     50% {
       color: #fcfba9;
-    }
-
-    70% {
-      scale: 1.2;
+      opacity: 0.85;
     }
 
     100% {
-      opacity: 1;
       scale: 1;
+      rotate: 0deg;
+      opacity: 1;
     }
   }
 
   .fadeindark {
     animation-name: fadeindark;
-    animation-duration: .8s;
+    animation-duration: .5s;
+    animation-timing-function: ease;
   }
 
   .fadeinlight {
     animation-name: fadeinlight;
-    animation-duration: .8s;
+    animation-duration: .5s;
   }
 }
